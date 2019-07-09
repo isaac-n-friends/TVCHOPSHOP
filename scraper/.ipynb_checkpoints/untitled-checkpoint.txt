@@ -1,0 +1,25 @@
+try:
+    import tkinter as tk
+except:
+    import Tkinter as tk
+
+def get_page(url):
+    print("Getting cats from {}".format(url))
+
+class App(tk.Frame):
+    def __init__(self,master=None,**kw):
+        tk.Frame.__init__(self,master=master,**kw)
+        self.txtURL = tk.StringVar()
+        self.entryURL = tk.Entry(self,textvariable=self.txtURL)
+        self.entryURL.grid(row=0,column=0)
+        self.btnGet = tk.Button(self,text="Get Some Cats!",command=self.getCats)
+        self.btnGet.grid(row=0,column=1)
+
+    def getCats(self):
+        get_page(self.txtURL.get())
+
+
+if __name__ == '__main__':
+    root = tk.Tk()
+    App(root).grid()
+    root.mainloop()

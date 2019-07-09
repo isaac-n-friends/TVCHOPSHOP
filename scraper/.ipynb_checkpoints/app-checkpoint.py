@@ -6,7 +6,7 @@ class Calculator:
         self.master = master
         master.title("Calculator")
 
-        self.total = 0
+        self.total = '0'
         self.entered_number = 0
 
         self.total_label_text = IntVar()
@@ -39,7 +39,7 @@ class Calculator:
             return True
 
         try:
-            self.entered_number = float(new_text)
+            self.entered_number = str(new_text)
             return True
         except ValueError:
             return False
